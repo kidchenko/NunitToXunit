@@ -1,5 +1,7 @@
 version: '1.0.{build}'
-image: Visual Studio 2017
+image: 
+- Visual Studio 2017
+- Ubuntu
 branches:
   only:
   - master
@@ -11,11 +13,14 @@ install:
 before_build:
   # Display .NET Core version
   - cmd: dotnet --version
+  - sh: dotnet --version
   # Display minimal restore text
   - cmd: dotnet restore ./src/NUnitToXunit/NUnitToXunit.csproj --verbosity m
+  - sh: dotnet restore ./src/NUnitToXunit/NUnitToXunit.csproj --verbosity m
 build_script:
   # output will be in ./src/bin/debug/netcoreapp2.1/publish
   - cmd: dotnet publish ./src/NUnitToXunit/NUnitToXunit.csproj
+  - sh: dotnet publish ./src/NUnitToXunit/NUnitToXunit.csproj
 after_build:
   # For once the build has completed
 artifacts:
@@ -26,9 +31,12 @@ clone_depth: 1
 test_script:
   # restore packages for our unit tests
   - cmd: dotnet restore ./test/NUnitToXunit.Tests/NUnitToXunit.Tests.csproj --verbosity m
+  - sh: dotnet restore ./test/NUnitToXunit.Tests/NUnitToXunit.Tests.csproj --verbosity m
   # run the unit tests (requires changing into the test directory)
   - cmd: cd test/NUnitToXunit.Tests
+  - sh: cd test/NUnitToXunit.Tests
   - cmd: dotnet test
+  - sh: dotnet test
 on_finish :
   # any cleanup in here
 deploy: off
