@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "NUnitToXUnit": {
+      "commandName": "Project",
+      "commandLineArgs": "convert"
+    }
+  }
+}

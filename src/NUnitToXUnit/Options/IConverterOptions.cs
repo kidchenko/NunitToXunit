@@ -10,7 +10,7 @@ namespace NUnitToXUnit
         bool ConvertAssert { get; set; }
     }
 
-    public class DefaultOption : IConverterOptions
+    public class ConverterOptions : IConverterOptions
     {
         public bool RequiresSystemImport { get; set; }
         public bool RequiresXUnitImport { get; set; }
