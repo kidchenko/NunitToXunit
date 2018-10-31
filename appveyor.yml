@@ -15,7 +15,6 @@ before_build:
   - cmd: dotnet --version
   - sh: dotnet --version
   - sh: ls
-  - sh: curl -sflL 'https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-ssh.sh' | bash -e -
   # Display minimal restore text
   - cmd: dotnet restore ./src/NUnitToXunit/NUnitToXunit.csproj --verbosity m
   - sh: dotnet restore ./src/NUnitToXunit/ --verbosity m
