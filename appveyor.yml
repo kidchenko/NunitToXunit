@@ -18,11 +18,11 @@ before_build:
   - sh: curl -sflL 'https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-ssh.sh' | bash -e -
   # Display minimal restore text
   - cmd: dotnet restore ./src/NUnitToXunit/NUnitToXunit.csproj --verbosity m
-  - sh: dotnet restore ./src/NUnitToXunit/NUnitToXunit.csproj --verbosity m
+  - sh: dotnet restore ./src/NUnitToXunit/ --verbosity m
 build_script:
   # output will be in ./src/bin/debug/netcoreapp2.1/publish
   - cmd: dotnet publish ./src/NUnitToXunit/NUnitToXunit.csproj
-  - sh: dotnet publish ./src/NUnitToXunit/NUnitToXunit.csproj
+  - sh: dotnet publish ./src/NUnitToXunit/
 after_build:
   # For once the build has completed
 artifacts:
